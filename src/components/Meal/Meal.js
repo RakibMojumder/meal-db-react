@@ -59,7 +59,7 @@ const Meal = () => {
     return (
         <div className='mt-10'>
             <div className="meal-search-field text-center">
-                <input onChange={(e) => setSearch(e.target.value)} id='input-search' className='border border-pink-500 w-96 pl-4 py-2 focus:outline-none' type="text" placeholder='Search Here' />
+                <input id='input-search' className='border border-pink-500 w-96 pl-4 py-2 focus:outline-none' type="text" placeholder='Search Here' />
                 <button onClick={handleSearch} className='px-6 py-2 border border-pink-500 bg-pink-500 text-white'>Search</button>
             </div>
             <div className='meal grid grid-cols-12'>
