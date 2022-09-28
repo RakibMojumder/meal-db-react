@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Modal = ({ img, instructions }) => {
-    // console.log(modalData)
+
     return (
         <div>
             <input type="checkbox" id="my-modal-3" className="modal-toggle" />

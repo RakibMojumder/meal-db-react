@@ -3,10 +3,10 @@ import { clearFromDb } from '../../../utilities';
 import FoodList from '../../FoodList/FoodList';
 
 const Cart = ({ cart }) => {
-    // console.log(cart)
+
     return (
-        <div className="overflow-auto border rounded-md">
-            <table className="table w-full">
+        <div className="overflow-auto rounded-md">
+            <table className="table w-full border">
                 <thead>
                     <tr>
                         <th>Name</th>

@@ -10,12 +10,12 @@ const Meal = () => {
     const [cart, setCart] = useState([]);
 
 
-    // For fetch meal data
+    // fetch meal data
     useEffect(() => {
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
             .then(res => res.json())
             .then(data => setMeal(data.meals))
-    }, [search, cart]);
+    }, [search]);
 
     // fetch meal data from local storage
     useEffect(() => {
@@ -29,8 +29,10 @@ const Meal = () => {
             };
         };
         setCart(savedFood);
+
     }, [meal])
 
+    // console.log('effect')
 
     const handleSearch = () => {
         const inputValue = document.getElementById('input-search');
@@ -56,10 +58,11 @@ const Meal = () => {
         addToDb(selectedFood.idMeal);
     }
 
+
     return (
         <div className='mt-10'>
             <div className="meal-search-field text-center">
-                <input id='input-search' className='border border-pink-500 w-96 pl-4 py-2 focus:outline-none' type="text" placeholder='Search Here' />
+                <input onChange={(e) => setSearch(e.target.value)} id='input-search' className='border border-pink-500 w-96 pl-4 py-2 focus:outline-none' type="text" placeholder='Search Here' />
                 <button onClick={handleSearch} className='px-6 py-2 border border-pink-500 bg-pink-500 text-white'>Search</button>
             </div>
             <div className='meal grid grid-cols-12'>
@@ -70,7 +73,9 @@ const Meal = () => {
                         handleAddToCart={handleAddToCart}>
                     </SingleMeal>)}
                 </div>
-                <div className="meal-cart col-span-3 h-screen w-[335px] top-[5%] sticky right-0"><Cart cart={cart}></Cart></div>
+                <div className="meal-cart col-span-3 h-screen w-[335px] top-[5%] sticky right-0">
+                    <Cart cart={cart}></Cart>
+                </div>
             </div>
         </div>
     );
